@@ -9,8 +9,18 @@ generator client {
     recursive_type_depth = 5
 }
 
-model User {
-    id         String   @id @default(auto()) @map("_id") @db.ObjectId
+model Collection {
+    id              String   @id @default(auto()) @map("_id") @db.ObjectId
+    title           String
+    DatePublication String
+    Language        String
+    Priority        String
+    Actors          String
+    Location        String
+    TimeFrame       DateTime
+    LocalPath       String
+    KeyWords        String[]
+
     created_at DateTime @default(now())
     updated_at DateTime @updatedAt
     name       String

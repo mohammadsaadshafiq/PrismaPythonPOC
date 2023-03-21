@@ -22,25 +22,25 @@ async def shutdown_event():
     await prisma.disconnect()
 
 
-@app.post("/users")
+@app.post("/collection")
 async def create_user(user: dict):
     created_user = await prisma.user.create(user)
     return created_user
 
 
-@app.get("/users/{user_id}")
+@app.get("/collection/{user_id}")
 async def get_user(user_id: int):
     user = await prisma.user.find_unique(where={"id": user_id})
     return user
 
 
-@app.put("/users/{user_id}")
+@app.put("/collection/{user_id}")
 async def update_user(user_id: int, user_data: dict):
     updated_user = await prisma.user.update(where={"id": user_id}, data=user_data)
     return updated_user
 
 
-@app.delete("/users/{user_id}")
+@app.delete("/collection/{user_id}")
 async def delete_user(user_id: int):
     deleted_user = await prisma.user.delete(where={"id": user_id})
     return deleted_user
