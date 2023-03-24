@@ -10,7 +10,7 @@ generator client {
 }
 
 model Collection {
-    id              String   @id @default(auto()) @map("_id") @db.ObjectId
+    id              String   @id @default(cuid()) @map("_id")
     title           String
     DatePublication String
     Language        String
@@ -23,7 +23,4 @@ model Collection {
 
     created_at DateTime @default(now())
     updated_at DateTime @updatedAt
-    name       String
-    age        String
-    email      String?
 }
